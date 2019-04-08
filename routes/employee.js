@@ -7,5 +7,7 @@ var mdAuth = require('../middlewares/authenticated');
 
 // CRUD Default
 api.get('/hello', controller.hello);
+api.get('/employees', controller.getAll);
+api.post('/employee', controller.addEmployee);
 
 module.exports = api;
