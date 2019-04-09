@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "ae2ac642-2225-4ab6-8690-1c41f2c77660",
+		"name": "bitacora",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Francisco\", \"nickname\": \"Paco\", \"entry\": {\"when\": 793845, \"description\": \"Hello\", \"notes\": []}}"
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/employee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add entry to employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"5cabe50e2ae30f272dfab8b9\", \"entry\": {\"when\": \"123123\", \"description\": \"salida zzzzz\", \"notes\": []}}"
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/entrytoemp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"entrytoemp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all entries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/entries?search=x",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"entries"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "x"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get employee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/employee/5cabe50e2ae30f272dfab8b9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"employee",
+						"5cabe50e2ae30f272dfab8b9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get entry",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/entry/5cabe51e2ae30f272dfab8bb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"entry",
+						"5cabe51e2ae30f272dfab8bb"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
