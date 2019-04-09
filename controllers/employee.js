@@ -10,8 +10,6 @@ const apiMsg = 'Server Error.';
 
 function getAll(req, res) {
 
-    // utils.printParams(req);
-
     var searchParam = req.query.search;
     if (searchParam) {
         console.log('It does exist ... ');
@@ -24,8 +22,11 @@ function getAll(req, res) {
             }
         });
     } else {
+        console.log('Here alrpvw');
         Employee.find()
-        .exec((err, employees) => {
+        .populate({
+            path: 'entries'
+        }).exec((err, employees) => {
             if (err) {
                 res.status(500).send({message: apiMsg});
             } else {

@@ -1,11 +1,40 @@
 'use strict'
 
-// Model(s)
 var BitacoraEntry = require('../models/bitacoraentry');
+var Employee = require('../models/employee');
 
 const apiMsg = 'Server Error.';
 
+function getEntriesByEmployee(req, res) {
+    var id = req.params.id;
+
+    console.log('I am here ... : ' + id);
+
+    if (id) {
+        Employee.findById(id)
+        .populate({
+            path: 'entries'
+        }).exec((err, entries) => {
+            if (err) {
+                res.status(500).send({message: apiMsg + ' ' + err});
+            } else {
+                if (entries) {
+                    res.status(200).send(entries);
+                } else {
+                    res.status(200).send([]);
+                }
+                
+            }
+        });
+    } else {
+        res.status(400).send({message: 'Mising id ...'});
+    }
+
+}
+
 function getAll(req, res) {
+
+    console.log('getAll ... bita');
 
     var searchParam = req.query.search;
     if (searchParam) {
@@ -18,7 +47,10 @@ function getAll(req, res) {
             }
         });
     } else {
-        BitacoraEntry.find()
+        Employee.find()
+        .populate({
+            path: 'entries'
+        })
         .exec((err, entries) => {
             if (err) {
                 res.status(500).send({message: apiMsg});
@@ -99,5 +131,6 @@ module.exports = {
     getAll,
     getEntry,
     deleteEntry,
-    addEntry
+    addEntry,
+    getEntriesByEmployee
 };
