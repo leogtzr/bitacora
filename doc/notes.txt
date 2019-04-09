@@ -1,0 +1,15 @@
+curl -X GET --noproxy '*' http://localhost:8083/api/employees
+curl -X POST --noproxy '*' -H "Content-Type: application/json" -d '{"name": "Francisco", "nickname": "Paco", "entry": {"when": 793845, "description": "Hello", "notes": []}}' http://localhost:8083/api/employee
+
+
+curl -X POST --noproxy '*' -H "Content-Type: application/json" -d '{"id": "234", "entry": {"when": "123123", "description": "salida x", "notes": []}}' http://localhost:8083/api/entrytoemp
+
+curl -X POST --noproxy '*' -H "Content-Type: application/json" -d '{"name": "Francisco", "nickname": "Paco", "entry": {"when": 793845, "description": "Hello", "notes": []}}' http://localhost:8083/api/employee
+
+curl -X POST --noproxy '*' -H "Content-Type: application/json" -d '{"name": "Francisco", "nickname": "Paco"}' http://localhost:8083/api/employee
+
+5cabc98210921666fc73523c
+
+
+
+curl -X POST --noproxy '*' -H "Content-Type: application/json" -d '{"id": "5cabc98210921666fc73523c", "entry": {"when": "123123", "description": "salida x", "notes": []}}' http://localhost:8083/api/entrytoemp
