@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 // Routes
 var labRoutes = require('./routes/lab');
 var employeeRoutes = require('./routes/employee');
+var entriesRoutes = require('./routes/bitacoraentry');
 
 var cors = require('cors');
 
@@ -33,5 +34,6 @@ app.use((req, res, next)=>{
 
 app.use('/api', labRoutes);
 app.use('/api', employeeRoutes);
+app.use('/api', entriesRoutes);
 
 module.exports = app;

@@ -3,7 +3,6 @@
 // Model(s)
 var Lab = require('../models/lab');
 
-// Misc
 const apiMsg = 'Server Error.';
 
 
