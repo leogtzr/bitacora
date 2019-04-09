@@ -6,14 +6,27 @@ var BitacoraEntry = require('../models/bitacoraentry');
 const apiMsg = 'Server Error.';
 
 function getAll(req, res) {
-    BitacoraEntry.find()
-    .exec((err, entries) => {
-        if (err) {
-            res.status(500).send({message: apiMsg});
-        } else {
-            res.status(200).send(entries);
-        }
-    });
+
+    var searchParam = req.query.search;
+    if (searchParam) {
+        BitacoraEntry.find({description: new RegExp(searchParam + '.*', "i")})
+        .exec((err, entries) => {
+            if (err) {
+                res.status(500).send({message: apiMsg});
+            } else {
+                res.status(200).send(entries);
+            }
+        });
+    } else {
+        BitacoraEntry.find()
+        .exec((err, entries) => {
+            if (err) {
+                res.status(500).send({message: apiMsg});
+            } else {
+                res.status(200).send(entries);
+            }
+        });
+    }
 }
 
 function getEntry(req, res) {

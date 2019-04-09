@@ -10,8 +10,8 @@ const apiMsg = 'Server Error.';
 
 function getAll(req, res) {
 
-    utils.printParams(req);
-    // console.log(req.query);
+    // utils.printParams(req);
+
     var searchParam = req.query.search;
     if (searchParam) {
         console.log('It does exist ... ');
