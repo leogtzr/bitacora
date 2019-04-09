@@ -49,7 +49,24 @@ function getEntry(req, res) {
     }
 }
 
+function deleteEntry(req, res) {
+    var id = req.params.id;
+
+    Employee.findByIdAndRemove(id, (err, removedEntry) => {
+        if (err) {
+            res.status(500).send({message: apiMsg + ' ' + err});
+        } else {
+            if (!removedEntry) {
+                res.status(500).send({message: "Error removing entry "});
+            } else {
+                res.status(200).send(removedEntry);
+            }
+        }
+    });
+}
+
 module.exports = {
     getAll,
-    getEntry
+    getEntry,
+    deleteEntry
 };

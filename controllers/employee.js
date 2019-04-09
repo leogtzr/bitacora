@@ -24,7 +24,6 @@ function getAll(req, res) {
             }
         });
     } else {
-        console.log('Normal search ... ');
         Employee.find()
         .exec((err, employees) => {
             if (err) {
@@ -131,9 +130,26 @@ function getEmployee(req, res) {
     }
 }
 
+function deleteEmployee(req, res) {
+    var empId = req.params.id;
+
+    Employee.findByIdAndRemove(empId, (err, removedEmployee) => {
+        if(err){
+            res.status(500).send({message: apiMsg + ' ' + err});
+        }else{
+            if (!removedEmployee) {
+                res.status(500).send({message: "Error removing employee ... "});
+            } else {
+                res.status(200).send(removedEmployee);
+            }
+        }
+    });
+}
+
 module.exports = {
     getAll,
     getEmployee,
     addEmployee,
-    addEntryToEmployee
+    addEntryToEmployee,
+    deleteEmployee
 };

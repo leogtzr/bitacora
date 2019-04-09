@@ -1,7 +1,7 @@
 {
-  "name": "littleapi",
+  "name": "bitacora",
   "version": "1.0.0",
-  "description": "little api",
+  "description": "bitacora api",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\"",
@@ -28,8 +28,6 @@
     "mongoose-pagination": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^5.14.0",
-    "eslint-config-strongloop": "^2.1.0",
     "nodemon": "^1.18.10"
   }
 }
