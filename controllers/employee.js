@@ -39,7 +39,6 @@ function getAll(req, res) {
 
 function addEmployee(req, res) {
     var employee = new Employee();
-    var entry = new BitacoraEntry();
     var params = req.body;
 
     utils.printParams(req);
@@ -68,7 +67,7 @@ function addEmployee(req, res) {
 function addEntryToEmployee(req, res) {
 
     var params = req.body;
-    var entry = params.entry;
+    var entry = new BitacoraEntry();
 
     utils.printParams(req);
 
@@ -79,13 +78,14 @@ function addEntryToEmployee(req, res) {
             } else {
 
                 if (employee) {
-                    var entry = new BitacoraEntry();
-                    entry.when = params.entry.when;
-                    entry.description = params.entry.description;
-                    entry.notes = params.entry.notes;
+                    
+                    entry.date = params.when;
+                    entry.description = params.description;
+                    entry.notes = params.notes;
 
                     entry.save((err, savedEntry) => {
                         if (err) {
+                            console.log(err);
                             res.status(500).send({message: apiMsg + ' ' + err});
                         } else {
                             employee.entries.push(savedEntry);

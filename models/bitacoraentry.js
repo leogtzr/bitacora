@@ -3,8 +3,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var BitacoraEntrySchema = Schema({
-    when: Number,
     description: String,
+    date: Date,
     notes: [String]
 });
 
