@@ -52,7 +52,7 @@ function getEntry(req, res) {
 function deleteEntry(req, res) {
     var id = req.params.id;
 
-    Employee.findByIdAndRemove(id, (err, removedEntry) => {
+    BitacoraEntry.findByIdAndRemove(id, (err, removedEntry) => {
         if (err) {
             res.status(500).send({message: apiMsg + ' ' + err});
         } else {
@@ -65,8 +65,39 @@ function deleteEntry(req, res) {
     });
 }
 
+function addEntry(req, res) {
+
+    var params = req.body;
+    var entry = new BitacoraEntry();
+
+    utils.printParams(req);
+
+    entry.when = params.when;
+    entry.description = params.description;
+    entry.notes = params.notes;
+
+    if (entry.when && entry.description) {
+
+        entry.save((err, newEntry) => {
+            if (err) {
+                res.status(500).send({message: apiMsg + ' ' + err});
+            } else {
+                if (!newEntry){
+                    res.status(500).send({message: 'Error creating entry'});
+                } else {
+                    res.status(200).send(newEntry);
+                }
+            }
+        });
+
+    } else {
+        res.status(400).send({message: 'Mising some fields ... '});
+    }
+}
+
 module.exports = {
     getAll,
     getEntry,
-    deleteEntry
+    deleteEntry,
+    addEntry
 };
