@@ -12,7 +12,6 @@ function getAll(req, res) {
 
     var searchParam = req.query.search;
     if (searchParam) {
-        console.log('It does exist ... ');
         Employee.find({nickname: new RegExp('^' + searchParam + '.*', "i")})
         .exec((err, employees) => {
             if (err) {
@@ -22,7 +21,6 @@ function getAll(req, res) {
             }
         });
     } else {
-        console.log('Here alrpvw');
         Employee.find()
         .populate({
             path: 'entries'

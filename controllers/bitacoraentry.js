@@ -8,8 +8,6 @@ const apiMsg = 'Server Error.';
 function getEntriesByEmployee(req, res) {
     var id = req.params.id;
 
-    console.log('I am here ... : ' + id);
-
     if (id) {
         Employee.findById(id)
         .populate({
