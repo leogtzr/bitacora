@@ -25,15 +25,12 @@ function getEntriesByEmployee(req, res) {
             }
         });
     } else {
-        res.status(400).send({message: 'Mising id ...'});
+        res.status(400).send({message: 'Missing id ...'});
     }
 
 }
 
 function getAll(req, res) {
-
-    console.log('getAll ... bita');
-
     var searchParam = req.query.search;
     if (searchParam) {
         BitacoraEntry.find({description: new RegExp(searchParam + '.*', "i")})
@@ -75,7 +72,7 @@ function getEntry(req, res) {
             }
         });
     } else {
-        res.status(400).send({message: 'Mising id ...'});
+        res.status(400).send({message: 'Missing id ...'});
     }
 }
 
@@ -121,7 +118,7 @@ function addEntry(req, res) {
         });
 
     } else {
-        res.status(400).send({message: 'Mising some fields ... '});
+        res.status(400).send({message: 'Missing some fields ... '});
     }
 }
 
