@@ -13,3 +13,9 @@ curl -X POST --noproxy '*' -H "Content-Type: application/json" -d '{"name": "Fra
 
 
 curl -X POST --noproxy '*' -H "Content-Type: application/json" -d '{"id": "5cabc98210921666fc73523c", "entry": {"when": "123123", "description": "salida x", "notes": []}}' http://localhost:8083/api/entrytoemp
+
+
+
+curl -X POST --noproxy '*' -H "Content-Type: application/json" -d '{"name": "Francisco", "nickname": "Paco"}' http://localhost:8083/api/employee
+
+mongoexport --db bitacora--out bitacora.json
