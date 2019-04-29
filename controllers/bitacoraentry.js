@@ -31,9 +31,6 @@ function getEntriesByEmployee(req, res) {
 }
 
 function getAll(req, res) {
-
-    console.log('getAll ... bita');
-
     var searchParam = req.query.search;
     if (searchParam) {
         BitacoraEntry.find({description: new RegExp(searchParam + '.*', "i")})
