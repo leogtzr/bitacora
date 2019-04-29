@@ -25,7 +25,7 @@ function getEntriesByEmployee(req, res) {
             }
         });
     } else {
-        res.status(400).send({message: 'Mising id ...'});
+        res.status(400).send({message: 'Missing id ...'});
     }
 
 }
@@ -72,7 +72,7 @@ function getEntry(req, res) {
             }
         });
     } else {
-        res.status(400).send({message: 'Mising id ...'});
+        res.status(400).send({message: 'Missing id ...'});
     }
 }
 
@@ -118,7 +118,7 @@ function addEntry(req, res) {
         });
 
     } else {
-        res.status(400).send({message: 'Mising some fields ... '});
+        res.status(400).send({message: 'Missing some fields ... '});
     }
 }
 
